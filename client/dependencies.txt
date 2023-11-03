@@ -1,0 +1,7 @@
+//frontend
+
+npm i react-router-dom axios dotenv react-toastify react-redux 
+
+//backend
+
+npm install aws-sdk bcryptjs body-parser cors dotenv ejs express express-async-handler jsonwebtoken mongodb mongoose multer node-cron nodemailer nodemon
