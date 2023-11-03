@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/auth'
+import { useNavigate } from "react-router-dom"
 
 function LoginForm() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const { login } = useAuth();
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         // You can add your authentication logic here.
         e.preventDefault()
         console.log(
@@ -14,7 +16,12 @@ function LoginForm() {
             password
         )
 
-        login(email, password)
+        const res = await login(email, password)
+        console.log(res)
+        if (res?.status === 200) {
+            navigate('/')
+        }
+
     };
 
 
@@ -51,7 +58,7 @@ function LoginForm() {
                 onClick={handleRegister}
                 className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
             >
-                handleRegister
+                login
             </button>
         </div>
     );

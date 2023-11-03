@@ -1,5 +1,6 @@
 import axios from "axios"
 
+
 const useAuth = () => {
 
     const register = async (email, password) => {
@@ -30,6 +31,9 @@ const useAuth = () => {
             if (res.status === 200) {
                 alert(res.data.message)
                 localStorage.setItem('token', res.data.token)
+                return res
+                // window.location.href = '/'
+
             }
         } catch (error) {
             console.log(error)

@@ -28,22 +28,31 @@ const Home = () => {
     }, [cartItems])
 
     return (
-        <div className='p-10 flex gap-4'>
+        <div className='p-10 '>
             {/* <h1 className='text-black'>Home</h1> */}
+            <button className='border border-black bg-red p-2 rounded-lg' onClick={() => {
+                localStorage.removeItem('token')
+                window.location.reload()
+            }}>
+                Logout
+            </button>
+            <div className='flex gap-4 mt-10'>
 
-            {
-                cartItems.map((item, index) => {
-                    return (
-                        <div key={index} className='border p-2 border-black'>
-                            <h1>{item.name}</h1>
-                            <h1>{item.productId.name}</h1>
-                            <h1>Quantity:{item.quantity}</h1>
-                            <h1>Price:{item.productId.price}</h1>
-                            {/* <button className='border border-black p-2 rounded-lg'>Add to Cart</button> */}
-                        </div>
-                    )
-                })
-            }
+                {
+                    cartItems.map((item, index) => {
+                        return (
+                            <div key={index} className='border p-2 border-black'>
+                                <h1>{item.name}</h1>
+                                <h1>{item.productId.name}</h1>
+                                <h1>Quantity:{item.quantity}</h1>
+                                <h1>Price:{item.productId.price}</h1>
+                                {/* <button className='border border-black p-2 rounded-lg'>Add to Cart</button> */}
+                            </div>
+                        )
+                    })
+                }
+            </div>
+
         </div>
 
     )
