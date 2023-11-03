@@ -85,12 +85,37 @@ const useAuth = () => {
         }
     }
 
+    const addData = async (name, price, file) => {
+        try {
+
+            // const formData=new FormData();
+
+            // formData.append('name',name)
+            // formData.append('price',price)
+            // formData.append('file',file)
+            const res = await axios.post(`http://localhost:4000/api/v1/product/create`, {
+                name: name,
+                price: price,
+                file: file
+            }, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+
+            return res.data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return {
         register,
         login,
         cart,
         getProducts,
-        addTOcart
+        addTOcart,
+        addData
     }
 
 }

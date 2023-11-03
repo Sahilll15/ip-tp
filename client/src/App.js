@@ -6,6 +6,7 @@ import LoginForm from './pages/Login';
 import RegisterForm from './pages/Register'
 import Home from './pages/Home';
 import ProtectedRoutes from './components/ProtectedRoutes';
+import AddForm from './pages/AddForm';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
 
           <Route path="/" element={<ProtectedRoutes />} >
             <Route path="/" element={<Home />} />
+            <Route path="/form" element={<AddForm />} />
+
           </Route>
         </Routes>
       </div>

@@ -102,6 +102,9 @@ const uploadData = async (req, res) => {
     }
 }
 
+
+
+
 module.exports = {
     register,
     login,
